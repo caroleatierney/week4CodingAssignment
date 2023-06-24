@@ -63,7 +63,6 @@ for (i = 0; i <= names.length - 1; i++) { // loop through the array
 console.log(`This is the new array of nameLength: ${nameLengths}\n\n\n`);
 
 //----------------------------------------    Question 6    ------------------------------------------------------------
-// Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array.
 
 console.log("---- Question 6 ----");
 var sum = 0;
@@ -77,57 +76,88 @@ for (i = 0; i <= nameLengths.length - 1; i++) { // loop through the array
 //----------------------------------------    Question 7    ------------------------------------------------------------
 
 console.log("---- Question 7 ----");
-// Write a function that takes two parameters, word and n, as arguments and
-// returns the word concatenated to itself n number of times.
-// (i.e.if I pass in 'Hello' and 3, I would expect the function to return 'HelloHelloHello').
 
-********* ReDo !!! *****************
-
-
-var wordConcat
+var wordConcat = ""; // initialize global variable
 let concatByN = (word, n) => {
-    for (let i = 0; i <= n; i++) {
-        wordConcat = concatName += c\n\n\n`) // print the concatenated variable
-
-
+    for (let i = 1; i <= n; i++) { // loop n number of times
+        wordConcat = wordConcat.concat(word); // concatenate the names
     }
+    return wordConcat; // return the concatenated word
 }
-
-console.log(concatByN(from, 6))
-
-
+console.log(concatByN("Hello", 3),"\n\n\n"); // print the outcome of the function
 
 //----------------------------------------    Question 8    ------------------------------------------------------------
 
-// Write a function that takes two parameters, word and n, as arguments and returns the word concatenated to itself n number of times. (i.e.if I pass in 'Hello' and 3, I would expect the function to return 'HelloHelloHello').
 console.log("---- Question 8 ----");
+
+let makeFullName = (firstName, lastName) => {
+    return fullName = firstName.concat(" ", lastName); // concatenate first and last names
+}
+console.log(makeFullName("John", "Snow"),"\n\n\n");
 
 //----------------------------------------    Question 9    ------------------------------------------------------------
 
-// Write a function that takes two parameters, firstName and lastName, and returns a full name.The full name should be the first and the last name separated by a space.
 console.log("---- Question 9 ----");
 
+let greater100Funct = (numberArray) => {
+    return numberArray.reduce((accumulator, currentValue) => accumulator + currentValue) > 100;
+}
+console.log(`Is total of array > 100? ${greater100Funct([20, 15, 12, 6, 8, 70])} (sum > 100)`); // is > 100 returns true
+console.log(`Is total of array > 100? ${greater100Funct([2, 15, 12, 6, 8, 7])} (sum < 100)`); // is < 100 returns false
+console.log(`Is total of array > 100? ${greater100Funct([20, 20, 20, 20, 20])} (sum = 100)\n\n\n`); // is = 100 returns false
+
 //----------------------------------------    Question 10    ------------------------------------------------------------
-// Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100.
+// Write a function that takes an array of numbers and returns the average of all
+// the elements in the array.
+
 console.log("---- Question 10 ----");
+
+let averageFunct = (numberArray) => numberArray.reduce((accumulator, currentValue) => accumulator + currentValue) / numberArray.length;
+console.log(`The average of the array is: ${averageFunct([20, 15, 5, 30, 90, 80])}\n\n\n`); // call function and log returned average
 
 //----------------------------------------    Question 11    ------------------------------------------------------------
 
-// Write a function that takes an array of numbers and returns the average of all the elements in the array.
 console.log("---- Question 11 ----");
+
+let averageGreater = (array1, array2) => array1.reduce((accumulator, currentValue) => accumulator + currentValue) > array2.reduce((accumulator, currentValue) => accumulator + currentValue);
+console.log(`Is the average of the first array greater than the second array? ${averageGreater([20, 15, 5, 30, 90, 80], [20, 15, 5, 30, 90, 80])} (they are =)`); // call function and log false - arrays are =
+console.log(`Is the average of the first array greater than the second array? ${averageGreater([20, 15, 5, 30, 90, 80], [20, 15, 5])} (array1 > array 2)`); // call function and log true - array1 > array 2
+console.log(`Is the average of the first array greater than the second array? ${averageGreater([20, 15, 5], [20, 15, 5, 30, 90, 80])} (array1 < array 2)\n\n\n`); // call function and log false - array1 < array 2
 
 //----------------------------------------    Question 12    ------------------------------------------------------------
 
-// Write a function that takes two arrays of numbers and returns true if the average of the elements in the first array is greater than the average of the elements in the second array.
 console.log("---- Question 12 ----");
 
-//----------------------------------------    Question 13    ------------------------------------------------------------
+let willBuyDrink = (isHotOutside, moneyInPocket) => isHotOutside === true && moneyInPocket >= 10.50
+console.log(`Can you buy a drink? ${willBuyDrink(true, 13)} (it is hot outside and you have enough money)`);
+console.log(`Can you buy a drink? ${willBuyDrink(true, 10)} (it is hot outside but you don'thave enough money)`);
+console.log(`Can you buy a drink? ${willBuyDrink(true, 10.50)} (it is hot outside and you have just enough money)`);
+console.log(`Can you buy a drink? ${willBuyDrink(false, 10.50)} (you have just enough money but it is not hot outside)`);
+console.log(`Can you buy a drink? ${willBuyDrink(false, 13)} (you have enough money but it is not hot outside)`);
+console.log(`Can you buy a drink? ${willBuyDrink(false, 9)} (you don't have enough money and it is not hot outside)\n\n\n`);
 
-// Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
+//----------------------------------------    Question 13    ------------------------------------------------------------
+// This function will generate an array of randomly generated integers between 0 and 100
+// The length of the array is passed into the function as a random integer between 1 and 10
+// The array is returned and printed to the console
+// The max and min integers of the array are also printed to the console
+// I created this function to practice math methods such as max, min and random number generator
 
 console.log("---- Question 13 ----");
 
-//----------------------------------------    Question 14    ------------------------------------------------------------
+let practiceMathFunctions = (length) => {
+    const newArray = [];
+    let i = 0;
+    while (i < length) {
+       newArray.push(Math.floor(Math.random() * 100));
+       i++; 
+    }  
+    return newArray;
+}
 
-// Create a function of your own that solves a problem.In comments, write what the function does and why you created it.//----------------------------------------    Question 13    ------------------------------------------------------------
-console.log("---- Question 14 ----");
+let randomArray = practiceMathFunctions(Math.floor(Math.random() * 10) +1);
+console.log(`The random array is ${randomArray}`)
+console.log(`The random array's length is ${randomArray.length}`)
+console.log(`The maximum integer in the array is: ${randomArray.reduce((a, b) => Math.max(a, b))}`)
+console.log(`The minimum integer in the array is: ${randomArray.reduce((a, b) => Math.min(a, b))}\n\n\n`)
+
