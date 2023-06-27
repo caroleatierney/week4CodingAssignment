@@ -34,7 +34,7 @@ console.log(`The average number of letters per name is: ${totalLetters / names.l
 
 var concatName = ''; // initialize variable
 for (i = 0; i <= names.length - 1; i++) { // loop through the array
-    concatName = concatName.concat(names[i], " "); // concatenate the names with a space between them
+    concatName = concatName.concat(`${names[i]} `); // concatenate the names with a space between them
 }
 console.log(`The concatenated variable generated is: ${concatName}\n\n\n`) // print the concatenate variable
 
